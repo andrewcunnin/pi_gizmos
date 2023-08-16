@@ -3,24 +3,29 @@ End to end test to check that Raspberry GPIO is properly interfaced
 """
 
 import RPi.GPIO as GPIO
+from datetime import datetime
+import time
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from furby_utils import BLUE_LED, YELLOW_LED, PHOTO_INPUT
+
+def monitor_photoresistor():
+    for i in range(10000):
+        if i%1000 == 0:
+            print(PHOTO_INPUT.active_state())
+        time.sleep(1)
+
+
 
 def check_pins():
-    i = 0
-    while(True):
-        i += 1
-        GPIO.setmode(GPIO.BCM)
-        GPIO.setup(i, GPIO.OUT)
-        GPIO.output(i, GPIO.HIGH)
+    for i in range(26):
         print(f"Pin {i} set to HIGH")
-        input("Press ENTER to increment... Starting at 0")
+        input("Press ENTER to increment..\n")
         GPIO.output(i, GPIO.LOW)
-        if i == 25:
-            break
     print("Finished checking pins!")
 
-
 def main():
-    check_pins()
+    monitor_photoresistor()
     GPIO.cleanup()
 
 if __name__ == '__main__':
