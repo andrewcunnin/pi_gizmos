@@ -9,7 +9,7 @@ def check_pins():
     while(True):
         input("Press ENTER to increment... Starting at 0")
         i += 1
-        GPIO.setmode(GPIO.BOARD)
+        GPIO.setmode(GPIO.BCM)
         GPIO.setup(i, GPIO.OUT)
         GPIO.output(i, GPIO.HIGH)
         print(f"Pin {i} set to HIGH")
