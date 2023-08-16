@@ -36,7 +36,7 @@ def check_outputs():
 def main():
     init_gpio()
     # check_outputs()
-    monitor_photoresistor()
+    monitor_lightswitch()
     GPIO.cleanup()
 
 if __name__ == '__main__':
