@@ -20,6 +20,7 @@ def check_pins():
 
 def main():
     check_pins()
+    GPIO.cleanup()
 
 if __name__ == '__main__':
     main()
