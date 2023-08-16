@@ -19,6 +19,7 @@ def monitor_photoresistor():
             print(f"Light turned on at {datetime.now()}")
         if prev_state and not pin_state:
             print(f"Light turned off at {datetime.now()}")
+        prev_state = pin_state
         time.sleep(1)
 
 
@@ -32,6 +33,7 @@ def check_outputs():
     print("Finished checking pins!")
 
 def main():
+    init_gpio()
     # check_outputs()
     monitor_photoresistor()
     GPIO.cleanup()
