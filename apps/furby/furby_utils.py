@@ -14,5 +14,5 @@ PHOTO_INPUT = InputDevice(21)
 
 INPUT_PINS = [PHOTO_INPUT]
 
-init_gpio():
+def init_gpio():
     GPIO.setmode(GPIO.BCM)
