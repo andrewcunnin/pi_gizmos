@@ -11,13 +11,15 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from furby_utils import BLUE_LED, YELLOW_LED, PHOTO_INPUT, OUTPUT_PINS, init_gpio
 
 def monitor_lightswitch():
-    prev_state = PHOTO_INPUT.is_active
-    print(f"Initial state is: {prev_state}")
+    is_on = False
     while(True):
         pin_state = PHOTO_INPUT.is_active
-        if pin_state and not prev_state:
+        if pin_state and not is_on:
+            is_on = True
             BLUE_LED.on()
             print(f"Light turned on at {datetime.now()}")
+            while PHOTO_INPUT.is_active:
+                continue
         if prev_state and not pin_state:
             BLUE_LED.off()
             print(f"Light turned off at {datetime.now()}")
