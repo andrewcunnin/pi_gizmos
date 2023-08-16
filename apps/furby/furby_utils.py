@@ -1,5 +1,10 @@
 import logging
 from gpiozero import LED, InputDevice
+import RPi.GPIO as GPIO
+
+
+GPIO.setmode(GPIO.BCM)
+
 # OUTPUTS
 BLUE_LED = LED(13)
 YELLOW_LED = LED(7)
