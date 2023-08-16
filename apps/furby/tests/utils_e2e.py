@@ -18,14 +18,17 @@ def monitor_photoresistor():
 
 
 
-def check_pins():
-    for i in range(26):
-        print(f"Pin {i} set to HIGH")
+def check_outputs():
+    for pin in OUTPUT_PINS:
+        pin.on()
+        print(f"Pin {pin} set to HIGH")
         input("Press ENTER to increment..\n")
-        GPIO.output(i, GPIO.LOW)
+        pin.off()
+        time.sleep(500)
     print("Finished checking pins!")
 
 def main():
+    check_outputs()
     monitor_photoresistor()
     GPIO.cleanup()
 
