@@ -12,7 +12,7 @@ PHOTO_INPUT = InputDevice(21)
 
 INPUT_PINS = [PHOTO_INPUT]
 
-PIO.setmode(GPIO.BCM)
+GPIO.setmode(GPIO.BCM)
 for pin in OUTPUT_PINS:
     GPIO.setup(pin, GPIO.OUT)
 for pin in INPUT_PINS:
