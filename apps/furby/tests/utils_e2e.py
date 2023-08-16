@@ -8,7 +8,7 @@ import time
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from furby_utils import BLUE_LED, YELLOW_LED, PHOTO_INPUT, OUTPUT_PINS
+from furby_utils import BLUE_LED, YELLOW_LED, PHOTO_INPUT, OUTPUT_PINS, init_gpio
 
 def monitor_photoresistor():
     prev_state = PHOTO_INPUT.is_active
