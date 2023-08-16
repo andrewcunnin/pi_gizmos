@@ -8,7 +8,7 @@ import time
 import os
 import sys
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-from furby_utils import BLUE_LED, YELLOW_LED, PHOTO_INPUT
+from furby_utils import BLUE_LED, YELLOW_LED, PHOTO_INPUT, OUTPUT_PINS
 
 def monitor_photoresistor():
     for i in range(10000):
