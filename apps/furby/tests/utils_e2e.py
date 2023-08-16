@@ -17,7 +17,7 @@ def monitor_photoresistor():
         if pin_state and not prev_state:
             print(f"Light turned on at {datetime.now()}")
         if prev_state and not pin_state:
-            print(f"Light turned off at {datetime.now()}"")
+            print(f"Light turned off at {datetime.now()}")
         time.sleep(1)
 
 
