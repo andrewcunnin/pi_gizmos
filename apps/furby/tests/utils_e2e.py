@@ -11,8 +11,13 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from furby_utils import BLUE_LED, YELLOW_LED, PHOTO_INPUT, OUTPUT_PINS
 
 def monitor_photoresistor():
-    for i in range(10):
-        print(PHOTO_INPUT.active_state())
+    prev_state = PHOTO_INPUT.active_state()
+    for i in range(30):
+        pin_state = PHOTO_INPUT.active_state()
+        if pin_state and not prev_state:
+            print(f"Light turned on at {datetime.now()}")
+        if prev_state and not pin_state:
+            print(f"Light turned off at {datetime.now()}"")
         time.sleep(1)
 
 
@@ -26,7 +31,7 @@ def check_outputs():
     print("Finished checking pins!")
 
 def main():
-    check_outputs()
+    # check_outputs()
     monitor_photoresistor()
     GPIO.cleanup()
 
