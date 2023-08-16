@@ -15,17 +15,14 @@ def monitor_lightswitch():
     while(True):
         pin_state = PHOTO_INPUT.is_active
         if pin_state:
+            is_on = not is_on
+            on_off = "on" if is_on else "off"
             if is_on:
-                on_off = "off"
                 BLUE_LED.on()
             else:
-                on_off = "on"
                 BLUE_LED.off()
-            is_on = not is_on
             print(f"Light turned {on_off} at {datetime.now()}")
-            while PHOTO_INPUT.is_active:
-                continue
-        prev_state = pin_state
+            time.sleep(1)
 
 
 
